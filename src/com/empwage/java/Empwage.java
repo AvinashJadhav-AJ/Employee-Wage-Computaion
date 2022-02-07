@@ -5,14 +5,19 @@ public class Empwage {
 	public static final int is_part_time = 2;
 	public static final int Employee_wage_per_Hour = 20;
 	public static final int number_of_working_day = 20;
-	
+    public static final int max_number_of_working_hours = 100;	
 	public static void main(String[] args) {
 		
 		int empHrs = 0;
 		int empwage = 0;
 		int totalempwage = 0;
+		int totalworkingday = 0;
+	    int totalemphrs = 0;
 		
-		for (int day = 0; day < number_of_working_day; day++) {
+	    while (totalemphrs <= max_number_of_working_hours &&
+	    		totalworkingday < number_of_working_day){
+	    	totalworkingday++;
+	    	totalemphrs++;
 		int empcheck = (int) Math.floor(Math.random() * 100) % 3;
 		switch (empcheck) {
 		
@@ -26,7 +31,8 @@ public class Empwage {
 		
 			default:
 				empHrs = 0;
-			}
+	    }
+		totalemphrs += empHrs;
 		empwage = empHrs * Employee_wage_per_Hour;
 		totalempwage += empwage;
 		    System.out.println("empwage: " + empwage);
